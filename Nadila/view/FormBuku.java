@@ -5,52 +5,48 @@
  */
 package Nadila.view;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextField;
-
-import Nadila.controller.MahasiswaControllerDb;
+import Nadila.controller.BukuController;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
 /**
  *
  * @author ASUS
  */
-public class FormMahasiswa extends javax.swing.JFrame {
+public class FormBuku extends javax.swing.JFrame {
 
     /**
-     * Creates new form FormAnggota : Generate
+     * Creates new form FormBuku
      */
-    MahasiswaControllerDb controller;
-    public FormMahasiswa() {
+    BukuController controller;
+    
+    public FormBuku() {
         initComponents();
-        controller = new MahasiswaControllerDb(this);
-        controller.cancel();
+        controller = new BukuController(this);
+        controller.clearView();
         controller.viewData();
     }
 
-    public JComboBox<String> getCboJenisKelamin() {
-        return cboJenisKelamin;
+    public JTable getTblBuku() {
+        return tblBuku;
     }
 
-    public JTextField getTxtAlamat() {
-        return txtAlamat;
+    public JTextField getTxtJudul() {
+        return txtJudul;
     }
 
-    public JTextField getTxtNama() {
-        return txtNama;
+    public JTextField getTxtKode() {
+        return txtKode;
     }
 
-    public JTextField getTxtNobp() {
-        return txtNobp;
+    public JTextField getTxtPengarang() {
+        return txtPengarang;
     }
 
-    public JTextField getTxtTanggalLahir() {
-        return txtTanggalLahir;
+    public JTextField getTxtTahun() {
+        return txtTahun;
     }
-
-    public JTable getTabelMahasiswa() {
-        return tabelMahasiswa;
-    }
+    
     
 
     /**
@@ -65,55 +61,53 @@ public class FormMahasiswa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNobp = new javax.swing.JTextField();
-        txtNama = new javax.swing.JTextField();
-        txtAlamat = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        cboJenisKelamin = new javax.swing.JComboBox<>();
+        txtKode = new javax.swing.JTextField();
+        txtJudul = new javax.swing.JTextField();
+        txtPengarang = new javax.swing.JTextField();
+        txtTahun = new javax.swing.JTextField();
         btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        txtTanggalLahir = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabelMahasiswa = new javax.swing.JTable();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblBuku = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setText("No BP");
+        jLabel1.setText("Judul Buku");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(20, 20, 130, 16);
+        jLabel1.setBounds(30, 60, 159, 36);
 
-        jLabel2.setText("Nama");
+        jLabel2.setText("Kode Buku");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(20, 60, 31, 16);
+        jLabel2.setBounds(30, 20, 159, 36);
 
-        jLabel3.setText("Alamat");
+        jLabel3.setText("Pengarang");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 100, 37, 16);
+        jLabel3.setBounds(30, 100, 159, 36);
 
-        txtNobp.setText("jTextField1");
-        getContentPane().add(txtNobp);
-        txtNobp.setBounds(120, 20, 410, 30);
-
-        txtNama.setText("jTextField2");
-        getContentPane().add(txtNama);
-        txtNama.setBounds(120, 60, 410, 30);
-
-        txtAlamat.setText("jTextField3");
-        getContentPane().add(txtAlamat);
-        txtAlamat.setBounds(120, 100, 410, 30);
-
-        jLabel4.setText("Jenis Kelamin");
+        jLabel4.setText("Tahun Terbit");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(20, 140, 90, 16);
+        jLabel4.setBounds(30, 140, 159, 36);
 
-        cboJenisKelamin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Laki-laki", "Perempuan" }));
-        getContentPane().add(cboJenisKelamin);
-        cboJenisKelamin.setBounds(120, 140, 160, 30);
+        txtKode.setText("jTextField1");
+        getContentPane().add(txtKode);
+        txtKode.setBounds(240, 20, 420, 33);
+
+        txtJudul.setText("jTextField2");
+        getContentPane().add(txtJudul);
+        txtJudul.setBounds(240, 60, 420, 36);
+
+        txtPengarang.setText("jTextField3");
+        getContentPane().add(txtPengarang);
+        txtPengarang.setBounds(240, 100, 420, 36);
+
+        txtTahun.setText("jTextField4");
+        getContentPane().add(txtTahun);
+        txtTahun.setBounds(240, 140, 420, 36);
 
         btnInsert.setText("Insert");
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +116,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnInsert);
-        btnInsert.setBounds(20, 230, 80, 30);
+        btnInsert.setBounds(30, 200, 72, 23);
 
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +125,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(110, 230, 90, 30);
+        btnUpdate.setBounds(90, 200, 72, 23);
 
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +134,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnDelete);
-        btnDelete.setBounds(210, 230, 90, 30);
+        btnDelete.setBounds(170, 200, 72, 23);
 
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
@@ -149,7 +143,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnCancel);
-        btnCancel.setBounds(310, 230, 90, 30);
+        btnCancel.setBounds(240, 200, 72, 23);
 
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -158,43 +152,35 @@ public class FormMahasiswa extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnExit);
-        btnExit.setBounds(410, 230, 100, 30);
+        btnExit.setBounds(310, 200, 72, 23);
 
-        jLabel5.setText("Tanggal Lahir");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 180, 90, 16);
-
-        txtTanggalLahir.setText("jTextField1");
-        getContentPane().add(txtTanggalLahir);
-        txtTanggalLahir.setBounds(120, 180, 160, 30);
-
-        tabelMahasiswa.setModel(new javax.swing.table.DefaultTableModel(
+        tblBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "No BP", "Nama", "Alamat", "Jekel", "Tgl Lahir"
+                "Kode Buku", "Judul Buku", "Pengarang", "Tahun Terbit"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tabelMahasiswa.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblBuku.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelMahasiswaMouseClicked(evt);
+                tblBukuMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(tabelMahasiswa);
+        jScrollPane1.setViewportView(tblBuku);
 
-        getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(20, 280, 550, 290);
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(30, 240, 633, 402);
 
-        setSize(new java.awt.Dimension(611, 632));
+        setSize(new java.awt.Dimension(701, 706));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -202,33 +188,37 @@ public class FormMahasiswa extends javax.swing.JFrame {
         // TODO add your handling code here:
         controller.insert();
         controller.viewData();
-        controller.cancel();
+        controller.clearView();
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
         controller.update();
+        controller.clearView();
         controller.viewData();
     }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void tblBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBukuMouseClicked
+        // TODO add your handling code here:
+        controller.actionClickTabel();
+    }//GEN-LAST:event_tblBukuMouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         controller.delete();
+        controller.viewData();
+        controller.clearView();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
+        controller.clearView();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
-
-    private void tabelMahasiswaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelMahasiswaMouseClicked
-        // TODO add your handling code here:
-        controller.actionClickTabel();
-    }//GEN-LAST:event_tabelMahasiswaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -247,13 +237,13 @@ public class FormMahasiswa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormMahasiswa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -261,7 +251,7 @@ public class FormMahasiswa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormMahasiswa().setVisible(true);
+                new FormBuku().setVisible(true);
             }
         });
     }
@@ -272,17 +262,19 @@ public class FormMahasiswa extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnUpdate;
-    private javax.swing.JComboBox<String> cboJenisKelamin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tabelMahasiswa;
-    private javax.swing.JTextField txtAlamat;
-    private javax.swing.JTextField txtNama;
-    private javax.swing.JTextField txtNobp;
-    private javax.swing.JTextField txtTanggalLahir;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblBuku;
+    private javax.swing.JTextField txtJudul;
+    private javax.swing.JTextField txtKode;
+    private javax.swing.JTextField txtPengarang;
+    private javax.swing.JTextField txtTahun;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    
 }
